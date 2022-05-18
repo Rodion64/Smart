@@ -1,0 +1,133 @@
+@charset "UTF-8";
+.main {
+  max-width: 1536px;
+  min-height: 300px;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.main .text {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.products {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100px;
+  justify-content: center;
+}
+
+.text_err {
+  font-size: 20px;
+  color: #5a5a5a;
+}
+
+.products {
+  max-width: 1536px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding-bottom: 20px;
+}
+
+.products_main_text {
+  font-size: 40px;
+}
+
+.products_main_text span {
+  font-size: 20px;
+}
+
+.products_main_head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.products_main_head_left {
+  margin-left: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.products_main_head_left_box {
+  margin-left: 20px;
+  margin-top: 20px;
+  background-color: white;
+  width: 230px;
+  height: 300px;
+  box-shadow: 0px 0px 5px 6px rgba(0, 0, 255, 0.2);
+}
+
+.products_main_head_left_box:hover {
+  box-shadow: 0px 0px 5px 10px rgba(0, 0, 255, 0.2);
+}
+
+.products_main_head_left_box_item {
+  display: flex;
+  justify-content: space-around;
+}
+
+.products_main_head_left_box_item {
+  min-height: 100px;
+}
+
+.favorites_icon {
+  background-image: url("../img/избранное_4_1.png");
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  background-repeat: no-repeat;
+}
+.favorites_icon:hover {
+  background-image: url("../img/избранное_4.png");
+}
+
+.name {
+  height: 54px;
+}
+
+.price_icon {
+  background-image: url("../img/в_корзина.png");
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  background-repeat: no-repeat;
+}
+.price_icon:hover {
+  background-image: url("../img/в_корзина_1.png");
+}
+
+.price {
+  font-size: 30px;
+}
+
+.mark {
+  color: #666666;
+  margin-left: 30px;
+}
+
+.center_menu_img {
+  width: 150px;
+  height: 150px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1080px) {
+  .footer {
+    width: 100%;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .products {
+    width: 100%;
+  }
+}/*# sourceMappingURL=search.css.map */

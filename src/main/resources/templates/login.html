@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход/Регистрация</title>
+    <link rel="shortcut icon" type="image/png" href="img/Logo_mini_1.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/entry_st.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Source+Sans+Pro:wght@200;400&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="css/header_footer.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="scripts/header_footer.js"></script>
+</head>
+<body>
+
+<div class="header-container">
+    <div class="main_background">
+        <div class="wrapper">
+            <div class="header">
+                <div class="main_menu">
+                    <div class="logo">
+                        <a class="text-decoration-none text-reset" href="/index"><img
+                                class="logo_item text-decoration-none text-reset"
+                                width=250px heigth=300px
+                                src="img/Logo.png" alt="Logo"></a>
+                    </div>
+                    <div class="menu">
+                        <div class="menu_left">
+                            <div class="menu_left_item">
+                                Москва
+                            </div>
+                            <div class="menu_left_item"><a class="text-decoration-none text-reset" href="">+7(968)-608-64-54</a>
+                            </div>
+                        </div>
+                        <div class="menu_right">
+                            <div class="menu_right_item"><a class="text-decoration-none text-reset" href="">Журнал</a>
+                            </div>
+                            <div class="menu_right_item"><a class="text-decoration-none text-reset" href="">Акции</a>
+                            </div>
+                            <div class="menu_right_item"><a class="text-decoration-none text-reset" href="">Доставка</a>
+                            </div>
+                            <div class="menu_right_item"><a class="text-decoration-none text-reset" href="">Магазины</a>
+                            </div>
+                            <div class="menu_right_item"><a class="text-decoration-none text-reset" href="">Обратная
+                                связь</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="menu_bottom">
+    <div class="top">
+        <div id="nav">
+            <div class="nav_menu">
+                <p>Каталог</p>
+                <div class="nav_menu_list">
+                    <div class="nav_menu_list_item"><a class="text-decoration-none text-reset nev_item"
+                                                       href="/catalog_1">Apple</a></div>
+                    <div class="nav_menu_list_item"><a class="text-decoration-none text-reset nev_item"
+                                                       href="/catalog_2">Samsung</a></div>
+                    <div class="nav_menu_list_item"><a class="text-decoration-none text-reset nev_item"
+                                                       href="/catalog_3">HONOR</a></div>
+                    <div class="nav_menu_list_item"><a class="text-decoration-none text-reset nev_item"
+                                                       href="/catalog_4">Huawei</a></div>
+                    <div class="nav_menu_list_item"><a class="text-decoration-none text-reset nev_item"
+                                                       href="/catalog_5">OnePlus</a></div>
+                    <div class="nav_menu_list_item"><a class="text-decoration-none text-reset nev_item"
+                                                       href="/catalog_6">Google
+                        Pixel</a></div>
+
+                </div>
+            </div>
+        </div>
+
+        <form class="find" method="get" action="./search">
+            <input class="find_item" type="text" onfocus="this.value=''" value="Поиск по товарам" name="query">
+            <div>
+                <button type="submit_1">Поиск</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="menu_right_main">
+        <a class="text-decoration-none text-reset" href="#" sec:authorize="isAuthenticated()">
+            <div class="menu_right_main_item">
+                <img src="img/войти.png" alt="">
+                <div class="header_item_text" sec:authentication="name"></div>
+            </div>
+        </a>
+        <a class="text-decoration-none text-reset" href="/logout" sec:authorize="isAuthenticated()">
+            <div class="menu_right_main_item">
+                <img src="img/door.png" alt="">
+                <div class="header_item_text">Выйти</div>
+            </div>
+        </a>
+        <a class="text-decoration-none text-reset" href="/login" sec:authorize="!isAuthenticated()">
+            <div class="menu_right_main_item">
+                <img src="img/войти.png" alt="">
+                <div class="header_item_text">Войти</div>
+            </div>
+        </a>
+        <!--        <a class="text-decoration-none text-reset" href="favorites">-->
+        <!--            <div class="menu_right_main_item">-->
+        <!--                <img src="img/избранное.png" alt="">-->
+        <!--                <div class="header_item_text">Избранное</div>-->
+        <!--            </div>-->
+        <!--        </a>-->
+        <a class="text-decoration-none text-reset" href="/basket">
+            <div class="menu_right_main_item">
+                <img src="img/корзина.png" alt="">
+                <div class="header_item_text">Корзина</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="main">
+    <div class="box">
+        <div class="left">
+            <form th:action="@{/login}" method="post" class="login-form">
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">
+                        Неверное имя пользователя или пароль
+                    </div>
+                </div>
+                <div class="text">Вход</div>
+                <div class="subtext">Имя пользователя</div>
+                <input class="in_box" type="text" placeholder="sushchev2002@mail.ru" required="true" id="username"
+                       name="username">
+                <div class="subtext">Пароль</div>
+                <input class="in_box" type="password" placeholder="************" id="password" name="password">
+                <button type="submit">Войти</button>
+            </form>
+        </div>
+        <div class="right">
+            <form action="/registration" th:object="${user}" method="post">
+                <div th:if="${registerSuccessful}">
+                    <div class="alert alert-success">
+                        Регистрация успешна
+                    </div>
+                </div>
+                <div th:if="${errorLenPassword}">
+                    <div class="alert alert-danger">
+                        Минимальная длина пароля составляет 6 символов
+                    </div>
+                </div>
+                <div th:if="${errorAlreadyExistsUsername}">
+                    <div class="alert alert-danger">
+                        Пользователь с таким именем уже существует
+                    </div>
+                </div>
+                <div th:if="${errorAnomaly}">
+                    <div class="alert alert-danger">
+                        Непредвиденная ошибка
+                    </div>
+                </div>
+                <div class="text">Регистрация</div>
+                <div class="subtext">Ваше имя</div>
+                <input class="in_box" type="text" placeholder="Родион" required="true" th:field="*{username}">
+                <div class="subtext">Email</div>
+                <input class="in_box" type="email" placeholder="sushchev2002@mail.ru" required="true"
+                       th:field="*{email}">
+                <div class="subtext">телефон</div>
+                <input class="in_box" type="text" placeholder="+7(968)-608-64-54" required="true" th:field="*{phone}">
+                <div class="subtext">Пароль</div>
+                <input class="in_box subbox" type="password" placeholder="Придумайте пароль" required="true"
+                       th:field="*{password}">
+                <div class="subtext">Минимум 6 символов</div>
+                <br>
+                <button class="BTM">Регистрация</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="footer"></div>
+
+
+</body>
+</html>

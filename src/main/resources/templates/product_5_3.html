@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COURSE WORK</title>
+    <link rel="shortcut icon" type="image/png" href="img/Logo_mini_1.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/product_1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Source+Sans+Pro:wght@200;400&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="css/header_footer.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    <script src="scripts/header_footer.js"></script>
+    <script src="scripts/product_1.js"></script>
+    <script src="scripts/all_catalog.js"></script>
+</head>
+<body>
+
+<div class="header-container">
+    <div class="main_background">
+        <div class="wrapper">
+            <div class="header">
+                <div class="main_menu">
+                    <div class="logo">
+                        <a href="/index"><img class="logo_item" width=250px heigth=300px src="img/Logo.png" alt="Logo"></a>
+                    </div>
+                    <div class="menu">
+                        <div class="menu_left">
+                            <div class="menu_left_item">
+                                Москва
+                            </div>
+                            <div class="menu_left_item"><a href="">+7(968)-608-64-54</a></div>
+                        </div>
+                        <div class="menu_right">
+                            <div class="menu_right_item"><a href="">Журнал</a></div>
+                            <div class="menu_right_item"><a href="">Акции</a></div>
+                            <div class="menu_right_item"><a href="">Доставка</a></div>
+                            <div class="menu_right_item"><a href="">Магазины</a></div>
+                            <div class="menu_right_item"><a href="">Обратная связь</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="menu_bottom">
+    <div class="top">
+        <div id="nav">
+            <div class="nav_menu">
+                <p>Каталог</p>
+                <div class="nav_menu_list">
+                    <div class="nav_menu_list_item"><a href="/catalog_1" class="nev_item">Apple</a></div>
+                    <div class="nav_menu_list_item"><a href="/catalog_2" class="nev_item">Samsung</a></div>
+                    <div class="nav_menu_list_item"><a href="/catalog_3" class="nev_item">HONOR</a></div>
+                    <div class="nav_menu_list_item"><a href="/catalog_4" class="nev_item">Huawei</a></div>
+                    <div class="nav_menu_list_item"><a href="/catalog_5" class="nev_item">OnePlus</a></div>
+                    <div class="nav_menu_list_item"><a href="/catalog_6" class="nev_item">Google Pixel</a></div>
+
+                </div>
+            </div>
+        </div>
+
+        <form class="find" method="get" action="./search">
+            <input class="find_item" type="text" onfocus="this.value=''" value="Поиск по товарам" name="query">
+            <div>
+                <button type="submit_1">Поиск</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="menu_right_main">
+        <a href="#" sec:authorize="isAuthenticated()">
+            <div class="menu_right_main_item">
+                <img src="img/войти.png" alt="">
+                <div class="header_item_text" sec:authentication="name"></div>
+            </div>
+        </a>
+        <a href="/logout" sec:authorize="isAuthenticated()">
+            <div class="menu_right_main_item">
+                <img src="img/door.png" alt="">
+                <div class="header_item_text">Выйти</div>
+            </div>
+        </a>
+        <a href="/login" sec:authorize="!isAuthenticated()">
+            <div class="menu_right_main_item">
+                <img src="img/войти.png" alt="">
+                <div class="header_item_text">Войти</div>
+            </div>
+        </a>
+        <!--            <a href="favorites">-->
+        <!--                <div class="menu_right_main_item">-->
+        <!--                    <img src="img/избранное.png" alt="">-->
+        <!--                    <div class="header_item_text">Избранное</div>-->
+        <!--                </div>-->
+        <!--            </a>-->
+        <a href="/basket">
+            <div class="menu_right_main_item">
+                <img src="img/корзина.png" alt="">
+                <div class="header_item_text">Корзина</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+<div class="head_main">
+    <div class="main">
+        <div class="left">
+            <img class="img_object" src="image/img_5_3.jpg" alt="">
+        </div>
+
+        <div class="right">
+            <div class="box_info">
+                <div class="box_info_item">Oneplus 9 256Gb+12Gb Dual 5G Purple</div>
+                <div class="box_info_item"></div>
+                <div class="box_info_item">48980 <span>₽</span></div>
+                <div class="box_info_item">
+                    <a href="/addP_phone_5_3">
+                        <div class="bi bi-cart-plus m-3" style="font-size:32px;" onclick="Basket_1(1_9)"
+                             sec:authorize="isAuthenticated()"></div>
+                    </a>
+                    <div class="btn btn-dark m-3" th:text="${#authentication.getPrincipal().getPhoneCount(5,3)}"
+                         sec:authorize="isAuthenticated()"></div>
+                    <a href="/deleteP_phone_5_3">
+                        <div class="bi bi-cart-dash m-3" style="font-size:32px;" onclick="Basket_2(1_9)"
+                             sec:authorize="isAuthenticated()"></div>
+                    </a>
+                    <a href="/login" sec:authorize="!isAuthenticated()">
+                        <button class="btn rounded btn-outline-primary">Авторизуйтесь</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="character">
+        <div class="character_box">
+            <div class="text">Характеристики</div>
+            <div class="info_box">
+                <div class="box">
+                    Процессор	Qualcomm Snapdragon 888
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="footer">
+    <div class="main_footer">
+
+
+        <div class="contacts">
+
+            <div class="main_contacts">
+                <p class="test_item">Контакты</p>
+                <p><a href="">Адреса магазинов</a></p>
+                <p><a href="">+7(968)-608-64-54</a></p>
+                <p>Москва</p>
+                <div class="main_contacts_links">
+                    <a href=""><img src="img/vk.png" alt=""></a>
+                    <a href=""><img src="img/telegram.png" alt=""></a>
+                    <a href=""><img src="img/YOUTUBE.png" alt=""></a>
+                    <a href=""><img src="img/TWITTER.png" alt=""></a>
+                    <a href=""><img src="img/Facebook.png" alt=""></a>
+                </div>
+            </div>
+
+            <div class="menu_contacts">
+                <div class="menu_contacts_item">
+
+                    <p><a href="">Акции</a></p>
+                    <p><a href="">Информация</a></p>
+                    <p><a href="">Доставка</a></p>
+
+
+                </div>
+                <div class="menu_contacts_item">
+                    <p><a href="">Сервисные центры</a></p>
+                    <p><a href="">Услуги</a></p>
+                    <p><a href="">Обзоры</a></p>
+                </div>
+                <div class="menu_contacts_item">
+                    <p><a href="">Новости</a></p>
+                    <p><a href="">Клуб</a></p>
+                    <p><a href="">Вакансии</a></p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="bottom_footer">
+            <div class="bottom_footer_line">
+                <p>Курсовая работa Сущева Родиона</p>
+                <p class="bottom_footer_line_year">2022</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
+</script>
+</body>
+</html>
